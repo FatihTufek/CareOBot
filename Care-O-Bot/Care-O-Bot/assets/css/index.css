@@ -1,0 +1,302 @@
+:root {
+    --mavi: rgb(0, 161, 255);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+}
+
+.left-content {
+    min-width: 70px;
+    height: 100vh;
+    background-color: rgb(39, 40, 53);
+    position: relative;
+    transition: 400ms all;
+}
+
+.left-content .logo {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.left-content .logo p,
+.left-content .logo i {
+    display: none;
+    color: white;
+    font-size: x-large;
+}
+
+.left-content .logo p {
+    margin-top: 15px;
+    margin-right: 25px;
+}
+
+.left-content .logo img {
+    object-fit: cover;
+    width: 70px;
+}
+
+.left-content .menus {
+    height: calc(100vh - 70px);
+    width: 70px;
+}
+
+.left-content .menus i {
+    color: white;
+    font-size: x-large;
+}
+
+.left-content .open-menu li,
+.left-content .menus li {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 100%;
+}
+
+.left-content .open-menu li {
+    justify-content: start;
+    padding: 0 20px;
+}
+
+.left-content .open-menu li i {
+    margin-right: 20px;
+}
+
+.left-content .open-menu li:hover,
+.left-content .menus li:hover {
+    background-color: var(--mavi);
+}
+
+.left-content .menus>ul {
+    padding: 30px 0;
+    border-bottom: 2px solid gray;
+    margin: 0;
+}
+
+.left-content .menus>ul:first-child {
+    padding-top: 0;
+}
+
+.left-content .menus>ul:last-child {
+    border: none;
+}
+
+.left-content .open-menu {
+    width: 270px;
+    position: absolute;
+    top: 0;
+    left: -100px;
+    display: none;
+    height: 100vh;
+    background-color: rgb(39, 40, 53);
+    overflow-y: scroll;
+    animation-name: animation-close;
+    animation-duration: 400ms;
+    z-index: 555;
+}
+
+@keyframes animation-close {
+    from {
+        display: block;
+        left: 0;
+    }
+
+    to {
+        display: none;
+        left: -70px;
+    }
+}
+
+.left-content .open-menu .title {
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    color: gray;
+    font-size: medium;
+}
+
+.left-content:hover .open-menu {
+    display: block;
+    left: 0;
+    animation-name: animation-open;
+    animation-duration: 700ms;
+}
+
+@keyframes animation-open {
+    from {
+        display: none;
+        left: -70px;
+    }
+
+    to {
+        display: block;
+        left: 0;
+    }
+}
+
+
+.left-content:hover .logo i,
+.left-content:hover .logo p {
+    display: block;
+}
+
+
+.right-content {
+    width: calc(100% - 60px);
+    height: 100vh;
+    position: relative;
+}
+
+.right-content .top-menu{
+    height: 60px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(153, 151, 151);
+}
+
+.right-content .top-menu > div{
+    height: 60px;
+}
+
+.right-content .top-menu .star{
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-content .top-menu .star i{
+    font-size: x-large;
+    color: rgb(255, 195, 31);
+}
+
+.right-content .user{
+    width: 300px;
+    display: flex;
+}
+
+.right-content .user>div{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-content .user .user-inner{
+    width: 240px;
+    padding: 0 20px;
+}
+
+.right-content .user .user-inner img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.right-content .user .user-inner p,
+.right-content .user .user-inner i{
+    font-size: medium;
+    color: gray;
+    line-height: 60px;
+    margin-bottom: 0;
+    margin-left: 5px;
+}
+
+.right-content .user .user-menu{
+    width: 60px;
+    height: 60px;
+    border-left: 1px solid rgb(153, 151, 151);
+}
+
+.right-content .user .user-menu i{
+    font-size: x-large;
+    color: gray;
+    position: relative;
+}
+
+.right-content .user .user-menu i .menu-color{
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-size: medium;
+    font-weight: 400;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    text-align: center;
+}
+
+.right-content .blue-patern{
+    width: 100%;
+    height: 150px;
+    background-color: rgb(0, 161, 255);
+    background-color: var(--mavi);
+}
+
+.right-content .right-content-inner{
+    width: 100%;
+    height: calc(100vh - 60px);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    overflow-y: scroll;
+}
+
+
+
+.big-modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
